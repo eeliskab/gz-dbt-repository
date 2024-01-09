@@ -6,5 +6,5 @@ JOIN {{ ref('stg_raw__product')}} AS p USING (products_id))
 
 SELECT
 *
-, purchase_cost - quantity AS margin
+, revenue - purchase_cost AS margin
 FROM tempy
