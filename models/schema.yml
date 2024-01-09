@@ -10,7 +10,11 @@ sources:
         description: product catalog, 1 row per product_id with coorresponding purchase_price
         columns:
           - name: products_id
-          - name: purchase_price
+            tests:
+              - not_null
+              - unique
+          - name: purchse_price 
+            description: renamed as purchase_price
       - name: sales
         identifier: raw_gz_sales
         description: sales catalog, 1 row per product_id sold with coorresponding order_id etc
@@ -18,26 +22,26 @@ sources:
           - name: date_date
             description: date of purchase
           - name: orders_id
-          - name: products_id
+          - name: pdt_id
+            description: renamed as products_id
           - name: revenue
-            description: total revenue per product_id sold
+            description: total revenue per products_id sold
           - name: quantity
             description: quantity of product_id in order
+        tests:
+           - unique:
+               column_name: "(pdt_id || '_' || orders_id)"
       - name: ship
         identifier: raw_gz_ship
         description: shipping catalog, 1 row per order_id shipped with corresponding costs
         columns:
           - name: orders_id
-          - name: ship_fee
-            description: what customer paid for shipping
-          - name: log_cost
-            description: logistic costs
+            tests:
+             - not_null
+             - unique
+          - name: shipping_fee
+            description: renamed as ship_fee, what customer paid for shipping
+          - name: logcost 
+            description: renamed as log_cost
           - name: ship_cost
             description: shipping costs
-              
-
-
-
-
-
-
