@@ -15,19 +15,31 @@ sources:
               - unique
           - name: purchse_price 
             description: renamed as purchase_price
+            tests:
+              - not_null
       - name: sales
         identifier: raw_gz_sales
         description: sales catalog, 1 row per product_id sold with coorresponding order_id etc
         columns:
           - name: date_date
             description: date of purchase
+            tests:
+              - not_null
           - name: orders_id
+            tests:
+              - not_null
           - name: pdt_id
             description: renamed as products_id
+            tests:
+              - not_null
           - name: revenue
             description: total revenue per products_id sold
+            tests:
+              - not_null
           - name: quantity
             description: quantity of product_id in order
+            tests:
+              - not_null
         tests:
            - unique:
                column_name: "(pdt_id || '_' || orders_id)"
@@ -41,7 +53,13 @@ sources:
              - unique
           - name: shipping_fee
             description: renamed as ship_fee, what customer paid for shipping
+            tests:
+              - not_null
           - name: logcost 
             description: renamed as log_cost
+            tests:
+              - not_null
           - name: ship_cost
             description: shipping costs
+            tests:
+              - not_null
