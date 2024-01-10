@@ -69,3 +69,46 @@ models:
     tests:
      - unique:
         column_name: "(products_id || '_' || orders_id)"
+  - name: int_campaigns
+    description: cost data for paid campaigns
+    columns:
+       - name: date_date
+         tests:
+            - not_null
+       - name: paid_source
+         tests:
+              - not_null
+       - name: campaign_key
+         tests:
+            - not_null
+       - name: campaign_name
+         tests:
+              - not_null
+       - name: ads_cost
+         tests:
+              - not_null
+       - name: impression
+         tests:
+              - not_null
+       - name: click
+         tests:
+              - not_null
+    tests:
+     - unique:
+        column_name: "(date_date || '_' || campaign_key)"
+  - name: int_campaigns_day
+    description: aggregated cost data for paid campaigns per day
+    columns:
+       - name: date_date
+         tests:
+            - not_null
+            - unique
+       - name: ads_cost
+         tests:
+              - not_null
+       - name: ads_impression
+         tests:
+              - not_null
+       - name: ads_clicks
+         tests:
+              - not_null

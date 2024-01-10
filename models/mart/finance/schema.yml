@@ -28,5 +28,35 @@ models:
         description: aggregated operational_margin for each day
         tests:
           - not_null                    
-
-
+  - name: finance_campaigns_day
+    description: aggregated margin data after ads cost for each day
+    columns:
+      - name: date_date
+        tests:
+          - not_null
+          - unique
+      - name: ads_margin
+        tests:
+          - not_null
+      - name: average_basket
+        tests:
+          - not_null
+      - name: operational_margin
+        tests:
+          - not_null
+  - name: finance_campaigns_month
+    description: aggregated margin data after ads cost for each month
+    columns:
+      - name: datemonth
+        tests:
+          - not_null
+          - unique
+      - name: ads_margin
+        tests:
+          - not_null
+      - name: average_basket
+        tests:
+          - not_null
+      - name: operational_margin
+        tests:
+          - not_null
