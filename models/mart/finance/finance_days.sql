@@ -1,3 +1,4 @@
+
 WITH orders AS (
     SELECT
     o.*
