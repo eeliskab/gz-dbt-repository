@@ -63,3 +63,127 @@ sources:
             description: shipping costs
             tests:
               - not_null
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: list of adwords campaigns for each day
+        columns: 
+          - name: date_date
+            tests:
+              - not_null
+          - name: paid_source
+            description: always Adwords
+            tests:
+              - not_null
+          - name: campaign_key
+            tests:
+              - not_null
+          - name: camPGN_name
+            description: renamed as campaign_name
+            tests:
+              - not_null
+          - name: ads_cost
+            tests:
+              - not_null
+          - name: impression
+            tests:
+              - not_null
+          - name: click
+            tests:
+              - not_null
+        tests:
+           - unique:
+               column_name: "(date_date || '_' || campaign_key)"
+      - name: bing
+        identifier: raw_gz_bing
+        description: list of bing campaigns for each day
+        columns:
+         - name: date_date
+           tests:
+            - not_null
+         - name: paid_source
+           description: always Bing
+           tests:
+              - not_null
+         - name: campaign_key
+           tests:
+            - not_null
+         - name: camPGN_name
+           description: renamed as campaign_name
+           tests:
+              - not_null
+         - name: ads_cost
+           tests:
+              - not_null
+         - name: impression
+           tests:
+              - not_null
+         - name: click
+           tests:
+              - not_null
+        tests:
+           - unique:
+               column_name: "(date_date || '_' || campaign_key)"
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: list of criteo campaigns for each day
+        columns:
+         - name: date_date
+           tests:
+            - not_null
+         - name: paid_source
+           description: always Criteo
+           tests:
+              - not_null
+         - name: campaign_key
+           tests:
+            - not_null
+         - name: camPGN_name
+           description: renamed as campaign_name
+           tests:
+              - not_null
+         - name: ads_cost
+           tests:
+              - not_null
+         - name: impression
+           tests:
+              - not_null
+         - name: click
+           tests:
+              - not_null
+        tests:
+           - unique:
+               column_name: "(date_date || '_' || campaign_key)"
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: list of facebook campaigns for each day
+        columns:
+         - name: date_date
+           tests:
+            - not_null
+         - name: paid_source
+           description: always Facebook
+           tests:
+              - not_null
+         - name: campaign_key
+           tests:
+            - not_null
+         - name: camPGN_name
+           description: renamed as campaign_name
+           tests:
+              - not_null
+         - name: ads_cost
+           tests:
+              - not_null
+         - name: impression
+           tests:
+              - not_null
+         - name: click
+           tests:
+              - not_null
+        tests:
+           - unique:
+               column_name: "(date_date || '_' || campaign_key)"
+
+
+
+
