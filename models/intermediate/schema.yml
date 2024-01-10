@@ -1,0 +1,71 @@
+version: 2
+
+models:
+  - name: int_orders_margin
+    description: aggregated data for each order
+    columns:
+      - name: orders_id
+        tests:
+          - not_null
+          - unique
+      - name: date_date
+        tests:
+          - not_null
+      - name: revenue
+        description: sum of revenue for order_id
+        tests:
+          - not_null
+      - name: quantity
+        description: sum of quantity for order_id
+        tests:
+          - not_null
+      - name: purchase_cost
+        description: sum of purchase cost for order_id
+        tests:
+          - not_null
+      - name: margin
+        description: sum of margin for order_id
+        tests:
+          - not_null
+  - name: int_orders_operational
+    description: operational_margin for each order
+    columns:
+      - name: orders_id
+        tests:
+          - not_null
+          - unique
+      - name: date_date
+        tests:
+          - not_null
+      - name: operational_margin
+        tests:
+          - not_null
+  - name: int_sales_margin
+    description: data on each product in each order
+    columns:
+      - name: products_id
+        tests:
+          - not_null
+      - name: date_date
+        tests:
+          - not_null
+      - name: orders_id
+        tests:
+          - not_null
+      - name: revenue
+        tests:
+          - not_null
+      - name: quantity
+        tests:
+          - not_null
+      - name: purchase_price
+        tests:
+          - not_null
+      - name: purchase_cost
+        description: multiplication quantity, purchase price
+        tests:
+          - not_null
+      - name: margin
+    tests:
+     - unique:
+        column_name: "(products_id || '_' || orders_id)"

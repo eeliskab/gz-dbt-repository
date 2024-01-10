@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: finance_days
+    description: aggregated data for each day
+    columns:
+      - name: date_date
+        tests:
+          - not_null
+          - unique
+      - name: nb_transactions
+        description: aggregated nb_transactions for each day
+        tests:
+          - not_null
+      - name: revenue
+        description: aggregated revenue for each day
+        tests:
+          - not_null
+      - name: average_basket
+        description: average_basket for each day
+        tests:
+          - not_null
+      - name: margin
+        description: aggregated margin for each day
+        tests:
+          - not_null
+      - name: operational_margin
+        description: aggregated operational_margin for each day
+        tests:
+          - not_null                    
+
+
